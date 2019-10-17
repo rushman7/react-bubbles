@@ -97,3 +97,29 @@ form {
     margin-top: 16px;
   }
 }
+
+.login-div {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+
+  form {
+    margin: auto;
+
+    input {
+      width: 20rem;
+      text-align: center;
+      margin-top: 10px;
+      height: 2rem;
+      border-radius: 2rem;
+    }
+
+    button {
+      margin-top: 10px;
+      height: 2rem;
+      border-radius: 2rem;
+    }
+  }
+}
