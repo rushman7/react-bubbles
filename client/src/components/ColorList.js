@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { axiosWithAuth } from '../utils/axiosWithAuth';
+import AddColor from './AddColor';
 
 const initialColor = {
   color: "",
@@ -9,6 +10,7 @@ const initialColor = {
 const ColorList = ({ colors, updateColors }) => {
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
+  const [addingColor, setAddingColor] = useState(false);
 
   const editColor = color => {
     setEditing(true);
@@ -39,6 +41,11 @@ const ColorList = ({ colors, updateColors }) => {
   return (
     <div className="colors-wrap">
       <p>colors</p>
+      {
+        addingColor
+        ? <AddColor settingColor={setAddingColor} colors={colors} updateColors={updateColors}/>
+        : <button onClick={() => setAddingColor(true)}>Add A Color!</button>
+      }
       <ul>
         {colors.map(color => (
           <li key={color.color} onClick={() => editColor(color)}>
@@ -86,7 +93,6 @@ const ColorList = ({ colors, updateColors }) => {
         </form>
       )}
       <div className="spacer" />
-      {/* stretch - build another form here to add a color */}
     </div>
   );
 };
